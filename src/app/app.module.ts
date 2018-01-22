@@ -40,7 +40,11 @@ import {
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from './../environments/environment';
 
 @NgModule({
   declarations: [
@@ -49,6 +53,10 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -84,7 +92,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatTooltipModule
   ],
-  providers: [UsuarioService,WindowRef],
+  providers: [UsuarioService, WindowRef],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,13 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-card>
-  <mat-card-title>Enviar mensagem</mat-card-title>
+  <mat-card-title>Envio de mensagem para o WhatsApp</mat-card-title>
 
   <form (ngSubmit)="onSalvar(f)" #f="ngForm" class="form-form" (keydown.enter)="$event.preventDefault()">
     <mat-card-actions>
       <div fxLayout="column">
         <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start start" fxFlex="100%">
           <div fxFlex="100%">
-            <button mat-raised-button color="warn" type="submit">Enviar</button>
+            <button mat-raised-button   color="primary" type="button" (click)=onLimpar()>Limpar</button>
+            <button mat-raised-button  *ngIf="!processando" color="warn" type="submit">Enviar</button>
           </div>
         </div>
       </div>
@@ -21,15 +22,7 @@
         </div>
         <div fxFlex="10%" fxFlexFill>
           <mat-form-field class="form-full-width">
-            <input matInput
-                   name="ddd"
-                   id="ddd"
-                   #ddd
-                   required
-                   [(ngModel)]="usuario.ddd"
-                   #ddd="ngModel"
-                   placeholder="ddd"
-                   value="">
+            <input matInput name="ddd" id="ddd" #ddd required [(ngModel)]="usuario.ddd" #ddd="ngModel" placeholder="ddd" value="">
           </mat-form-field>
         </div>
         <div fxFlex="50%" fxFlexFill>
@@ -40,21 +33,13 @@
         </div>
         <div fxFlex="100%" fxFlexFill>
           <mat-form-field class="form-full-width">
-            <textarea matInput
-                      required
-                      id="mensagem"
-                      name="mensagem"
-                      #mensagem
-                      [(ngModel)]="usuario.mensagem"
-                      placeholder="Mensagem que será enviada para o usuário"
-
-                      matTextareaAutosize
-
-                      matAutosizeMinRows="2"
-                      matAutosizeMaxRows="5"></textarea>
+            <textarea matInput required id="mensagem" name="mensagem" #mensagem [(ngModel)]="usuario.mensagem" placeholder="Mensagem que será enviada para o usuário"
+              matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
           </mat-form-field>
         </div>
       </div>
     </mat-card-content>
   </form>
 </mat-card>
+
+<!--{{usuario | json}}-->
