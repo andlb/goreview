@@ -1,0 +1,30 @@
+
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.inform-snackbar {
+  background: rgb(27, 134, 216);
+}
+
+.alert-snackbar {
+  background: #F44336;
+}
+
+.mat-input-element {
+  font-size: 20px;
+}
+.mat-form-field{
+  font-size: 20px;
+}
+
+.mat-card-title {
+  font-size: 32px;
+}
+
+.form-form {
+  width: 100%;
+}
+
+.form-full-width {
+  width: 100%;
+}
