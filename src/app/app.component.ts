@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
   onLimpar() {
     let oUsuario = {};
     if (this.usuario.mensagem) {
-      oUsuario = {mensagem: this.usuario.mensagem}
+      oUsuario = {mensagem: this.usuario.mensagem};
     }
     this.usuario = new Usuario(oUsuario);
     this.nome.nativeElement.focus();
@@ -52,6 +52,8 @@ export class AppComponent implements OnInit {
   onSalvar(f) {
     this.processando = 1;
     if (!f.valid) {
+      this.processando = 0;
+      this.nome.nativeElement.focus();
       this.snackBar.open(
         'Os campos em vermelhor precisam ser preenchido(s)',
         '',
