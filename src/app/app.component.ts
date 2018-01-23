@@ -63,13 +63,13 @@ export class AppComponent implements OnInit {
     } else {
       const mensagem = this.usuario.mensagem.replace('%nome', this.usuario.nome);
       const telefone = '55' + this.usuario.ddd + this.usuario.telefone;
+
       this.usarioService.addUsuario(this.usuario).then(ref => {
         const newWindow = this.nativeWindow.open('https://api.whatsapp.com/send?phone=' + telefone + '&text=' + mensagem);
         this.onLimpar();
         this.processando = 0;
-
       });
-      this.usarioService.addMessage(mensagem);
+      this.usarioService.addMessage(this.usuario.mensagem);
     }
   }
 }
